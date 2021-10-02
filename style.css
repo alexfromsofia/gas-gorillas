@@ -1,0 +1,233 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-family: "Alegreya Sans SC", sans-serif;
+  background: rgb(26, 188, 156);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgb(26, 188, 156) 0%,
+    rgba(142, 68, 173, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(26, 188, 156, 1) 0%,
+    rgba(142, 68, 173, 1) 100%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(26, 188, 156, 1) 0%,
+    rgba(142, 68, 173, 1) 100%
+  );
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
+
+.gorilla-mint-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.bubble-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.bubble {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border: 5px white solid;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  animation: float 6s ease-in-out infinite;
+}
+
+.bubble img {
+  width: 100%;
+  height: auto;
+}
+
+.astro {
+  display: flex;
+}
+.fur-diamond {
+  animation-delay: 0;
+}
+.fur-zombie {
+  animation-delay: 2s;
+}
+.tee-logo {
+  animation-delay: 3s;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+}
+
+.quantity {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 50px;
+  padding: 0;
+  text-align: center;
+  border: none;
+}
+
+.quantity input {
+  width: 100%;
+  height: 50px;
+  font-weight: 100;
+  font-size: 25px;
+  font-family: "Alegreya Sans SC", sans-serif;
+  text-align: center;
+  background: transparent;
+  background: rgba(254, 218, 0, 0.6);
+  border: 5px white solid;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  pointer-events: none;
+}
+
+.quantity:hover input {
+  background: rgba(254, 218, 0, 1);
+}
+
+.quantity div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-weight: 100;
+  font-size: 30px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+}
+
+.decrement {
+  left: 0;
+}
+
+.increment {
+  right: 0;
+  left: auto;
+}
+
+.quantity div:hover {
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
+.quantity div:active {
+  box-shadow: none;
+}
+
+.submit-btn-container {
+  position: relative;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s linear, visibility 0.3s linear;
+}
+
+.submit {
+  width: 110px;
+  height: 110px;
+  color: black;
+  font-weight: 100;
+  font-size: 20px;
+  font-family: "Alegreya Sans SC", sans-serif;
+  text-transform: uppercase;
+  background: rgba(254, 218, 0, 0.61);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.connect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s linear, opacity 0.3s linear,
+    box-shadow 0.3s linear, visibility 0.3s linear;
+}
+
+.submit:hover {
+  background: rgba(254, 218, 0, 1);
+}
+
+.submit:active {
+  box-shadow: none;
+}
+
+.quantity .price {
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  z-index: -1;
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  background: white;
+  border-radius: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: inset 0 -10px 10px -10px #000000;
+}
