@@ -54,20 +54,27 @@ body {
 }
 
 .gorilla-mint-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+  padding: 55px;
 }
 
 .bubble-container {
   display: grid;
-  grid-auto-flow: column;
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(10px, max-content));
   justify-content: center;
-  width: 100%;
+  width: calc(100% - 110px);
+  margin-right: auto;
   margin-bottom: 80px;
+  margin-left: auto;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .bubble {
@@ -77,6 +84,7 @@ body {
   border: 5px white solid;
   border-radius: 50%;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s;
   animation: float 6s ease-in-out infinite;
 }
 
@@ -99,6 +107,8 @@ body {
 }
 
 .form {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;

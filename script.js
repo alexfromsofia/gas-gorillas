@@ -16,15 +16,6 @@ function init() {
     const bubble =
       '<div class="bubble"><img loading="lazy" src="./gorillas.gif"></div>';
 
-    function handleAdjustBubbleContainer(itemsCount) {
-      const containerWidth = bubbleContainer.getBoundingClientRect().width;
-      const columnWidth = Math.min(110, (containerWidth * 0.1) / itemsCount);
-      bubbleContainer.setAttribute(
-        "style",
-        `grid-auto-columns: ${columnWidth}px; margin-left: -110px;`
-      );
-    }
-
     function handleIncrement() {
       const { value } = countInput;
       const numVal = Number(value);
@@ -36,7 +27,6 @@ function init() {
       countInput.stepUp();
       calculatePrice(numVal + 1);
       bubbleContainer.insertAdjacentHTML("beforeend", bubble);
-      handleAdjustBubbleContainer(numVal);
     }
 
     function handleDecrement() {
@@ -53,7 +43,6 @@ function init() {
       bubbleContainer.childNodes[
         bubbleContainer.childNodes.length - 1
       ].remove();
-      handleAdjustBubbleContainer(numVal);
     }
     function calculatePrice(count) {
       priceElement.innerHTML = `${count} x ${mintCost} = ${
