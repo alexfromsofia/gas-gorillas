@@ -57,10 +57,15 @@ function init() {
     function handleWalletConnect(event) {
       event.preventDefault();
 
-      isWalletConnected = true;
-      btnWalletConnect.classList.add("hidden");
-      mainContainer.classList.remove("hidden");
-      mainContainer.classList.add("visible");
+      const answer = window.confirm("Connect wallet?");
+      if (answer) {
+        isWalletConnected = true;
+        btnWalletConnect.classList.add("hidden");
+        mainContainer.classList.remove("hidden");
+        mainContainer.classList.add("visible");
+      } else {
+        return;
+      }
     }
 
     btnIncrement.addEventListener("click", handleIncrement);
